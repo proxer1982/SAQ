@@ -1,0 +1,13 @@
+<span class="texto-mensaje" matSnackBarLabel>
+    {{ msj }}
+</span>
+<span matSnackBarActions>
+    <div mat-button class="{{ type }}">
+        @switch (type) {
+        @case ("success"){ <mat-icon>thumb_up</mat-icon>}
+        @case ("alert"){ <mat-icon>error_outline</mat-icon>}
+        @case ("warning"){ <mat-icon>warning</mat-icon>}
+        @default { <mat-icon>thumb_up</mat-icon>}
+        }
+    </div>
+</span>

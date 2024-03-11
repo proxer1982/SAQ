@@ -1,0 +1,13 @@
+app-header {
+    width: 100%;
+}
+
+.caja-contenido {
+    flex-grow: 1;
+    background-color: var(--color-text-95-cs);
+    width: 100%;
+    padding: 20px 40px;
+    justify-content: stretch;
+    align-items: center;
+    display: flex;
+}

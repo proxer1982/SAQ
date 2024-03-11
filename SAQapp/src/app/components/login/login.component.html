@@ -1,0 +1,38 @@
+<div class="w-full h-full login-fondo">
+    <div class="login">
+        <div class="avatar">
+            <img src="assets/img/logo_app.svg" alt="logo">
+        </div>
+        <h2>Iniciar sesión</h2>
+
+        <form [formGroup]="formLogin" (ngSubmit)="login()" class="login-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Usuario</mat-label>
+                <input matInput placeholder="usuario@satrack.com" formControlName="username">
+                @if(formLogin.hasError('required', 'username')){
+                <mat-error>El campo de usuario es requerido</mat-error>
+                }
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input matInput placeholder="******" [type]="inputType" formControlName="password">
+
+                @if(formLogin.hasError('required', 'password')){
+                <mat-error>El campo de contraseña es requerido</mat-error>
+                }
+                <button (click)="toggleVisibility()" matSuffix mat-icon-button
+                    matTooltip="{{ !visible ? 'Ver contraseña' : 'Ocultar contraseña' }}" aria-label="Ver contraseña"
+                    type="button">
+                    @if(visible){
+                    <mat-icon>visibility</mat-icon>
+                    } @else {
+                    <mat-icon>visibility_off</mat-icon>
+                    }
+                </button>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary">Ingresar</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="contenedor">
+
+    <mat-accordion>
+
+        @for (menu of menus; track menu.menuId) {
+        <mat-expansion-panel [hideToggle]="!menu.submenus || menu.submenus.length == 0"
+            [disabled]="!menu.submenus || menu.submenus.length == 0">
+            <mat-expansion-panel-header routerLink="/app/{{ menu.url }}">
+                <mat-panel-title>
+                    <div class="item-menu">
+                        <mat-icon>{{ menu.icon }}</mat-icon>
+                        <div mat-line>{{ menu.title }}</div>
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            @if (menu.submenus && menu.submenus.length > 0 ) {
+            <mat-nav-list>
+                @for (item of menu.submenus; track item.menuId) {
+                <mat-list-item routerLink="/app/{{ item.url }}">
+                    <div mat-line>{{ item.title}}</div>
+                </mat-list-item>
+                }
+
+            </mat-nav-list>
+            }
+        </mat-expansion-panel>
+        }
+
+    </mat-accordion>
+</div>

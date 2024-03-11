@@ -1,0 +1,37 @@
+<div class="contenedor-pri">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <div class="toolbar-inicio">
+                <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+                <h1>Sistema de calificación</h1>
+            </div>
+
+            <div class="actions">
+                <span>{{ user.firstName }} {{ user.lastName }}</span>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon>account_circle</mat-icon>
+                        <span>Mi perfil</span>
+                    </button>
+                    <button mat-menu-item disabled>
+                        <mat-icon>voicemail</mat-icon>
+                        <span>Check voice mail</span>
+                    </button>
+                    <button mat-menu-item (click)="logout()">
+                        <mat-icon>logout</mat-icon>
+                        <span>Salir</span>
+                    </button>
+                </mat-menu>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="caja-pri">
+        <app-menu></app-menu>
+        <div class="contenido">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

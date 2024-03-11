@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Confirmación</h2>
+<div mat-dialog-content>
+    <p>Estas seguro de eliminar a {{ data.firstName }} {{ data.lastName }}</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="confirmarEliminar()">Aceptar</button>
+    <button mat-button (click)="cancelarEliminar()">Cancelar</button>
+</div>

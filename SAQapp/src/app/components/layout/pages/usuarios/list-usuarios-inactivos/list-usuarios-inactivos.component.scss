@@ -1,0 +1,30 @@
+.caja-contenido {
+    flex-grow: 1;
+    background-color: var(--color-text-95-cs);
+    width: 100%;
+    padding: 20px 40px;
+    justify-content: stretch;
+    align-items: flex-start;
+    display: flex;
+}
+
+app-header {
+    width: 100%;
+}
+
+th[mat-header-cell] {
+    text-align: center;
+}
+
+td.td-correo,
+td.td-acciones {
+    text-align: center;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}

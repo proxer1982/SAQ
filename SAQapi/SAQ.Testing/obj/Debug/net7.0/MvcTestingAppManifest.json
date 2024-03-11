@@ -1,0 +1,7 @@
+{
+  "SAQ.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Api",
+  "SAQ.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Application",
+  "SAQ.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain",
+  "SAQ.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure",
+  "SAQ.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities"
+}

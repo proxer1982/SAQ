@@ -1,0 +1,45 @@
+.contenedor {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+mat-expansion-panel.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    margin: 0px;
+    box-shadow: none;
+    padding: 0;
+}
+
+mat-expansion-panel-header:hover {
+    background-color: var(--color-text-95-cs);
+}
+
+.item-menu {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+
+    :hover {
+        color: #000;
+    }
+
+    mat-icon {
+        color: var(--color-text-90-cs);
+        margin-right: 12px;
+    }
+
+    div {
+        flex-grow: 1;
+        font-weight: 500;
+        color: var(--color-text-cs);
+    }
+}
+
+.mat-expansion-panel-content {
+    padding: 0;
+    background-color: red;
+}

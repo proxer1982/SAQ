@@ -1,0 +1,403 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Api\\SAQ.Api.csproj": {}
+  },
+  "projects": {
+    "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Api\\SAQ.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Api\\SAQ.Api.csproj",
+        "projectName": "SAQ.Api",
+        "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Api\\SAQ.Api.csproj",
+        "packagesPath": "C:\\Users\\juan_zorro\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\juan_zorro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Application\\SAQ.Application.csproj": {
+                "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Application\\SAQ.Application.csproj"
+              },
+              "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj": {
+                "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj"
+              },
+              "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj": {
+                "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.16, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Application\\SAQ.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Application\\SAQ.Application.csproj",
+        "projectName": "SAQ.Application",
+        "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Application\\SAQ.Application.csproj",
+        "packagesPath": "C:\\Users\\juan_zorro\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\juan_zorro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj": {
+                "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj"
+              },
+              "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj": {
+                "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj"
+              },
+              "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj": {
+                "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.19.1, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj",
+        "projectName": "SAQ.Domain",
+        "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj",
+        "packagesPath": "C:\\Users\\juan_zorro\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\juan_zorro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj",
+        "projectName": "SAQ.Infrastructure",
+        "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\juan_zorro\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\juan_zorro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj": {
+                "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj"
+              },
+              "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj": {
+                "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.3.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj",
+        "projectName": "SAQ.Utilities",
+        "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj",
+        "packagesPath": "C:\\Users\\juan_zorro\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\juan_zorro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
