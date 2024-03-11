@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SAQ.Utilities")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ef1295754ba00ce2b16dd43a36326eae39aeee5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62508271251bee80e506d9aee81a1b1b6ab48a9d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SAQ.Utilities")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SAQ.Utilities")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

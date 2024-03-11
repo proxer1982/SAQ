@@ -815,11 +815,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj",
       "projectName": "SAQ.Infrastructure",
-      "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj",
+      "projectPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\juan_zorro\\.nuget\\packages\\",
-      "outputPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\obj\\",
+      "outputPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\juan_zorro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -836,11 +836,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj": {
-              "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj"
+            "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj": {
+              "projectPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj"
             },
-            "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj": {
-              "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj"
+            "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj": {
+              "projectPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj"
             }
           }
         }

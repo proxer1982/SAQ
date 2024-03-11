@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj",
+      "projectUniqueName": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj",
       "projectName": "SAQ.Utilities",
-      "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj",
+      "projectPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Utilities\\SAQ.Utilities.csproj",
       "packagesPath": "C:\\Users\\juan_zorro\\.nuget\\packages\\",
-      "outputPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Utilities\\obj\\",
+      "outputPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Utilities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\juan_zorro\\AppData\\Roaming\\NuGet\\NuGet.Config",

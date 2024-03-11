@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N6s7jcMO+Jk7Jowf+gReo/ZLi/GBVNM2Fy2otaBMqcI8ExdviAJdZ1Meh08Ok8JjhOs9WH50ZQ7SU2JUCjR3bQ==",
+  "dgSpecHash": "Hwa8okFpEEttKyFHcvzH/tuC2yf67I3Q5yxT73RZe3mUKq1BwkgrJ+darHd3aTJuyadhCowaLhv7EDrE+N5v3g==",
   "success": true,
-  "projectFilePath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Testing\\SAQ.Testing.csproj",
+  "projectFilePath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Testing\\SAQ.Testing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juan_zorro\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\juan_zorro\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

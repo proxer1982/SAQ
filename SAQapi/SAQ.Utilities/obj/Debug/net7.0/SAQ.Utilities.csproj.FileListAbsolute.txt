@@ -54,3 +54,15 @@ C:\Proyecto satrack\REPO\SAQapi\SAQ.Utilities\obj\Debug\net7.0\SAQ.Utilities.dll
 C:\Proyecto satrack\REPO\SAQapi\SAQ.Utilities\obj\Debug\net7.0\refint\SAQ.Utilities.dll
 C:\Proyecto satrack\REPO\SAQapi\SAQ.Utilities\obj\Debug\net7.0\SAQ.Utilities.pdb
 C:\Proyecto satrack\REPO\SAQapi\SAQ.Utilities\obj\Debug\net7.0\ref\SAQ.Utilities.dll
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\bin\Debug\net7.0\SAQ.Utilities.deps.json
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\bin\Debug\net7.0\SAQ.Utilities.dll
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\bin\Debug\net7.0\SAQ.Utilities.pdb
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\obj\Debug\net7.0\SAQ.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\obj\Debug\net7.0\SAQ.Utilities.AssemblyInfoInputs.cache
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\obj\Debug\net7.0\SAQ.Utilities.AssemblyInfo.cs
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\obj\Debug\net7.0\SAQ.Utilities.csproj.CoreCompileInputs.cache
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\obj\Debug\net7.0\SAQ.Utilities.sourcelink.json
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\obj\Debug\net7.0\SAQ.Utilities.dll
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\obj\Debug\net7.0\refint\SAQ.Utilities.dll
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\obj\Debug\net7.0\SAQ.Utilities.pdb
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Utilities\obj\Debug\net7.0\ref\SAQ.Utilities.dll

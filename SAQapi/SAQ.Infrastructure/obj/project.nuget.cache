@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lksDRlCyMJwqTIo8O39PM4kW5KhLiGIOMMAk1ZYYTTGAJdfWQygMm/Dfct8uDmAUcnZpkV1bwWvs3ySjdtGYlw==",
+  "dgSpecHash": "fkRKlp2xBv5/v7fFhfqarRq6JafTt092C9q1E3jbzjxaTFPnI4wNeipIM8vStDYt9hA7XL8y99qoaBzVps6HCw==",
   "success": true,
-  "projectFilePath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj",
+  "projectFilePath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Infrastructure\\SAQ.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juan_zorro\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.14\\microsoft.entityframeworkcore.7.0.14.nupkg.sha512",
     "C:\\Users\\juan_zorro\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.14\\microsoft.entityframeworkcore.abstractions.7.0.14.nupkg.sha512",

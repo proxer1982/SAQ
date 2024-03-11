@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eRWg96rqDS3QKxiViaKzTewoU4IWwzZp9sUzEeYAVLaY6Gutdnat/5zW30ihmWBiFsndGWO7q1CuTd3xQHvlrA==",
+  "dgSpecHash": "BKkTpaGDllfpP5w4gD9TjwVYs30zBPBAkUFMhSy6uOFyrO4sFrMBDuzeqQANBpVqNgCseliIpXdeWCf3Zqz9lQ==",
   "success": true,
-  "projectFilePath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj",
+  "projectFilePath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Domain\\SAQ.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juan_zorro\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\juan_zorro\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.14\\microsoft.entityframeworkcore.7.0.14.nupkg.sha512",

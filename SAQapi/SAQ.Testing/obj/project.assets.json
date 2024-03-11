@@ -5873,11 +5873,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Testing\\SAQ.Testing.csproj",
+      "projectUniqueName": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Testing\\SAQ.Testing.csproj",
       "projectName": "SAQ.Testing",
-      "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Testing\\SAQ.Testing.csproj",
+      "projectPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Testing\\SAQ.Testing.csproj",
       "packagesPath": "C:\\Users\\juan_zorro\\.nuget\\packages\\",
-      "outputPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Testing\\obj\\",
+      "outputPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Testing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\juan_zorro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5894,11 +5894,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Api\\SAQ.Api.csproj": {
-              "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Api\\SAQ.Api.csproj"
+            "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Api\\SAQ.Api.csproj": {
+              "projectPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Api\\SAQ.Api.csproj"
             },
-            "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Application\\SAQ.Application.csproj": {
-              "projectPath": "C:\\Proyecto satrack\\REPO\\SAQapi\\SAQ.Application\\SAQ.Application.csproj"
+            "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Application\\SAQ.Application.csproj": {
+              "projectPath": "C:\\Proyecto satrack\\SAQ\\SAQapi\\SAQ.Application\\SAQ.Application.csproj"
             }
           }
         }
