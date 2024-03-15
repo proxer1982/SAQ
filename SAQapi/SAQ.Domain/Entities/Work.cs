@@ -16,7 +16,7 @@
         public DateTime? DateDeleted { get; set; }
         public Guid? UserDeleted { get; set; }
 
-        public virtual Topic Topic { get; set; } = new Topic();
-        public virtual ICollection<TopicWork> TopicWorks { get; set; } = new List<TopicWork>();
+        //public virtual Topic Topic { get; set; } = new Topic();
+        //public virtual ICollection<TopicWork> TopicWorks { get; set; } = new List<TopicWork>();
     }
 }

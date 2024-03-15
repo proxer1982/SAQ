@@ -32,7 +32,8 @@ namespace SAQ.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> ListAllUser()
         {
-            var response = await _userApplication.GetAllUsers(StatusType.active);
+            var estados = new List<StatusType> { StatusType.active, StatusType.pending };
+            var response = await _userApplication.GetAllUsers(estados);
             return Ok(response);
         }
 
@@ -40,7 +41,8 @@ namespace SAQ.Api.Controllers
         [HttpGet("inactive")]
         public async Task<IActionResult> ListAllUserInactives()
         {
-            var response = await _userApplication.GetAllUsers(StatusType.inactive);
+            var estados = new List<StatusType> { StatusType.inactive };
+            var response = await _userApplication.GetAllUsers(estados);
             return Ok(response);
         }
 

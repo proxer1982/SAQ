@@ -8,7 +8,7 @@ export interface UsuarioDTO {
     alias: string | null,
     softSkills: boolean | null,
     urlImage: string,
-    status: number | boolean,
+    status: number,
     careerId: number | null,
     teamId: number | null,
 }

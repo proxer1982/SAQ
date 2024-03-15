@@ -17,7 +17,8 @@ namespace SAQ.Infrastructure.Persistence.Context.Configurations
             entity.Property(e => e.DateCreated).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
 
-            entity.HasOne(e => e.Topic).WithMany(e => e.UserTopics).HasForeignKey(e => e.TopicId);
+            entity.HasMany(e => e.TopicWorks).WithOne().HasForeignKey(e => e.UserTopicId);
+            entity.HasOne(e => e.Topic).WithMany().HasForeignKey(e => e.TopicId);
         }
     }
 }

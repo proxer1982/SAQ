@@ -14,7 +14,7 @@
         public DateTime? DateDeleted { get; set; }
         public Guid? UserDeleted { get; set; }
 
-        public virtual UserTopic? UserTopic { get; set; }
+        //public virtual UserTopic? UserTopic { get; set; }
         public virtual Work? Work { get; set; }
     }
 }

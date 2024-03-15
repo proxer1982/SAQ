@@ -32,9 +32,11 @@ namespace SAQ.Infrastructure.Persistence.Repositories
                         Url = m.Url,
                         Title = m.Title,
                         Parent = m.Parent,
-                        Status = m.Status
+                        Status = m.Status,
+                        Order = m.Order
                     })
-                    .OrderBy(m => m.Parent) // Ordenar primero los elementos con Parent
+                    .OrderBy(m => m.Parent)// Ordenar primero los elementos con Parent
+                    .ThenBy(m => m.Order)
                     .ToListAsync();
 
                 return menuList;

@@ -89,7 +89,7 @@ app-header {
 .loader {
     color: var(--color-primary-cs);
     font-size: 7px;
-    margin: 20px auto;
+    margin: 65px auto;
     width: 1em;
     height: 1em;
     border-radius: 50%;
@@ -154,4 +154,8 @@ app-header {
             3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
             -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
     }
+}
+
+input[disabled="disabled"] {
+    border-color: red;
 }

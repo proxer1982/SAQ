@@ -13,6 +13,7 @@ using SAQ.Utilities.Statics;
 
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 using BC = BCrypt.Net.BCrypt;
@@ -33,17 +34,23 @@ namespace SAQ.Application.Services
             _config = config;
         }
 
-        public async Task<BaseResponse<bool>> RegisterUser(UserRequestDto requestDto)
+        public async Task<BaseResponse<RegisterResponseDto>> RegisterUser(UserRequestDto requestDto)
         {
-            var response = new BaseResponse<bool>();
+            var response = new BaseResponse<RegisterResponseDto>();
             var account = _mapper.Map<User>(requestDto);
 
+            account.UserId = Guid.NewGuid();
+            account.UserCreated = Guid.Parse("be302144-78b1-4736-9b73-a81ec1516bc0");
+
             account.Password = BC.HashPassword(account.Password);
+            account.ActiveTkn = this.generateTknActive(account.UserName);
+            account.Status = 2;
 
-            response.Data = await _unitOfWork.User.RegisterAsync(account);
+            bool resp = await _unitOfWork.User?.RegisterAsync(account);
 
-            if (response.Data)
+            if (resp)
             {
+                response.Data = new RegisterResponseDto { estado = resp, ActiveTkn = account.ActiveTkn };
                 response.IsSuccess = true;
 
                 response.Message = ReplyMessage.MESSAGE_SAVE;
@@ -178,8 +185,12 @@ namespace SAQ.Application.Services
             return response;
         }
 
-        public async Task<BaseResponse<IEnumerable<User>>> GetAllUsers(StatusType status = StatusType.active)
+        public async Task<BaseResponse<IEnumerable<User>>> GetAllUsers(ICollection<StatusType> status = null)
         {
+            if (status == null)
+            {
+                status = new List<StatusType> { StatusType.active };
+            }
             var response = new BaseResponse<IEnumerable<User>>();
             var users = await _unitOfWork.User.GetAllAsync(status);
 
@@ -247,6 +258,31 @@ namespace SAQ.Application.Services
             List<int> permisos = (List<int>)await _unitOfWork.User.GetPermissonsByUser(userId);
 
             return permisos;
+        }
+
+        private string generateTknActive(string username)
+        {
+            string uniqueValue = Guid.NewGuid().ToString();
+
+            // Concatenar el nombre de usuario y el valor único
+            string tokenData = username + "|" + uniqueValue;
+
+            // Convertir el tokenData en un array de bytes
+            byte[] tokenBytes = Encoding.UTF8.GetBytes(tokenData);
+
+            // Calcular el hash SHA256 del tokenData
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(tokenBytes);
+
+                // Convertir el hash en una cadena hexadecimal
+                StringBuilder stringBuilder = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    stringBuilder.Append(hashBytes[i].ToString("x2"));
+                }
+                return stringBuilder.ToString();
+            }
         }
     }
 }

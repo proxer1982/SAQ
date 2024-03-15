@@ -4,7 +4,6 @@
     {
         public int TopicId { get; set; }
         public string? Description { get; set; }
-        public int CatagoryTopicId { get; set; }
         public string? UrlLogo { get; set; }
         public int Status { get; set; } = 1;
 
@@ -16,7 +15,7 @@
         public DateTime? DateDeleted { get; set; }
         public Guid? UserDeleted { get; set; }
 
-        public virtual ICollection<Work> Works { get; set; } = new List<Work>();
-        public virtual ICollection<UserTopic> UserTopics { get; set; } = new List<UserTopic>();
+        /*public virtual ICollection<Work> Works { get; set; } = new List<Work>();
+        public virtual ICollection<UserTopic> UserTopics { get; set; } = new List<UserTopic>();*/
     }
 }

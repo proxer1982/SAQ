@@ -28,12 +28,12 @@ namespace SAQ.Infrastructure.Persistence.Repositories
                 throw;
             }
         }
+
         public async Task<bool> RegisterAsync(User user)
         {
             try
             {
-                user.UserId = Guid.NewGuid();
-                user.UserCreated = Guid.Parse("be302144-78b1-4736-9b73-a81ec1516bc0");
+
 
                 await _context.AddAsync(user);
                 var recordsAffected = await _context.SaveChangesAsync();
@@ -94,14 +94,15 @@ namespace SAQ.Infrastructure.Persistence.Repositories
             }
         }
 
-
-
-
-        public async Task<IEnumerable<User>> GetAllAsync(StatusType status)
+        public async Task<IEnumerable<User>> GetAllAsync(ICollection<StatusType> status)
         {
             try
             {
-                var getAll = await _context.Users.Where(x => x.Status.Equals((int)status)).ToListAsync();
+                var getAll = await _context.Users.Where(x => status.Contains((StatusType)x.Status!))
+                    .OrderBy(e => e.Status)
+                    .ThenBy(e => e.FirstName)
+                    .ThenBy(e => e.LastName)
+                    .ToListAsync();
 
                 return getAll;
             }
@@ -111,7 +112,6 @@ namespace SAQ.Infrastructure.Persistence.Repositories
             }
 
         }
-
 
         public async Task<User> GetByIdAsync(Guid id)
         {
@@ -157,7 +157,6 @@ namespace SAQ.Infrastructure.Persistence.Repositories
 
             return result;
         }
-
 
         public async Task<BaseEntityResponse<User>> GetListUsers(BaseFiltersRequest filters)
         {

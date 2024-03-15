@@ -20,7 +20,7 @@ export class MapperService {
       softSkills: usuario.softSkills || false,
       positionId: usuario.positionId,
       urlImage: usuario.urlImage || '',
-      status: (usuario.status === 1 || usuario.status === true) ? 1 : 0,// Convertir de booleano a número según la lógica de tu aplicación
+      status: usuario.status,// Convertir de booleano a número según la lógica de tu aplicación
       careerId: usuario.careerId,
       teamId: usuario.teamId,
     };
@@ -37,7 +37,7 @@ export class MapperService {
       firstName: userDTO.firstName || null,
       lastName: userDTO.lastName || null,
       urlImage: userDTO.urlImage || null,
-      status: userDTO.status === 0, // Convertir de número a booleano según la lógica de tu aplicación
+      status: userDTO.status, // Convertir de número a booleano según la lógica de tu aplicación
       statusUser: null, // No estoy seguro de dónde obtendrías este valor en la transformación
       permisson: null, // No estoy seguro de dónde obtendrías este valor en la transformación
       alias: userDTO.alias || null,

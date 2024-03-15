@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } 
 import { MatDialog } from '@angular/material/dialog';
 import { AlertDeleteUserComponent } from '../../../../../shared/components/alert-delete-user/alert-delete-user.component';
 import { UtilityService } from '../../../../../services/utility.service';
+import { imagesSAQ } from '../../../../../shared/assets/images';
 
 @Component({
   selector: 'app-list-usuarios',
@@ -31,17 +32,18 @@ import { UtilityService } from '../../../../../services/utility.service';
   styleUrl: './list-usuarios.component.scss'
 })
 export class ListUsuariosComponent {
-  displayedColumns: string[] = ['Active', 'Nombre', 'Correo', 'Actions'];
+  displayedColumns: string[] = ['Active', 'Nombre', 'Correo', 'Cargo', 'Estado', 'Actions'];
   dataSource: Usuario[] = [];
+  img_user: string = imagesSAQ.USER;
 
   @ViewChild(MatTable) table: MatTable<Usuario> | undefined;
 
   constructor(private userService: UsuarioService, private _util: UtilityService, public dialog: MatDialog) {
     this.userService.getAllUsersActive().subscribe((res: ApiResponse) => {
       if (res.isSuccess) {
-        res.data.forEach((user: Usuario, index: number) => {
+        /*res.data.forEach((user: Usuario, index: number) => {
           res.data[index].status = user.status == 0 ? false : true
-        });
+        });*/
 
         this.dataSource = res.data;
 
@@ -90,7 +92,7 @@ export class ListUsuariosComponent {
       if (result) {
         this.eliminarUsuario(usuario.userId)
       } else {
-        usuario.status = !usuario.status
+        usuario.status = 0
       }
     })
   }
