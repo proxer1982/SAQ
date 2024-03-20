@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 import { TeamService } from '../../../../../services/team.service';
 import { Study } from '../../../../../interfaces/study.interface';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { Usuario } from '../../../../../interfaces/usuario.interface';
 
 @Component({
   selector: 'app-active',
@@ -44,6 +45,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 })
 export class InitComponent {
   formUser: FormGroup;
+  groupOne: FormGroup;
+  groupTwo: FormGroup;
 
   clase_password = 'password_show';
   txt_btn_pss = 'Cambiar contraseña';
@@ -95,23 +98,33 @@ export class InitComponent {
 
     });
 
+    this.groupOne = this._fb.group({
+      password: ['', [Validators.required, _validateService.passwordValidator]],
+      alias: ['', [Validators.required]],
+      teamId: [0, [Validators.required]]
+    })
+
+    this.groupTwo = this._fb.group({
+      study: this._fb.array(this.studies)
+    })
+
 
     this.formUser = this._fb.group({
       userId: [''],
       roleId: [''],
       positionId: [0, Validators.min(1)],
       userName: [''],
-      password: ['', [Validators.required, _validateService.passwordValidator]],
       firstName: [''],
       lastName: [''],
       urlImage: [''],
       status: [0],
-      alias: ['', [Validators.required]],
       softSkills: [false],
       careerId: [0],
       teamId: [0, [Validators.required]],
-      study: this._fb.array(this.studies)
+      groupOne: this.groupOne,
+      groupTwo: this.groupTwo
     })
+
 
 
     this.user = this._userService.getUserById(this._auth.getUserLogged().userId).subscribe(
@@ -120,21 +133,31 @@ export class InitComponent {
           this.user = resp.data;
           this.loader = false;
           console.log("este es el llamado del usuario: ", this.user)
+
+          this.groupOne = this._fb.group({
+            password: ["", [Validators.required, _validateService.passwordValidator]],
+            alias: [this.user.alias, [Validators.required]],
+            teamId: [this.user.teamId, [Validators.required]]
+          })
+
+          this.groupTwo = this._fb.group({
+            study: this.setStudy(this.user.study)
+          })
+
+
           this.formUser = this._fb.group({
             userId: [this.user.userId],
             roleId: [this.user.roleId],
             positionId: [this.user.positionId, Validators.min(1)],
             userName: [this.user.userName],
-            password: ["", [Validators.required, _validateService.passwordValidator]],
             firstName: [this.user.firstName],
             lastName: [this.user.lastName],
             urlImage: [this.user.urlImage],
             status: [1],
-            alias: [this.user.alias, [Validators.required]],
             softSkills: [this.user.softSkills],
             careerId: [this.user.careerId],
-            teamId: [this.user.teamId, [Validators.required]],
-            study: this.setStudy(this.user.study)
+            groupOne: this.groupOne,
+            groupTwo: this.groupTwo
           })
 
           this.addStudy();
@@ -193,11 +216,11 @@ export class InitComponent {
 
   // Getter para acceder al FormArray de estudios
   get studyArray() {
-    return this.formUser.get('study') as FormArray;
+    return this.groupTwo.get('study') as FormArray;
   }
 
   changePassword() {
-    this.formUser.get('password')?.setValue(this._util.generateSecurePassword(12));
+    this.groupOne.get('password')?.setValue(this._util.generateSecurePassword(12));
   }
 
   activeUser() {
@@ -215,10 +238,18 @@ export class InitComponent {
       }
     }
 
-    const user = this.formUser.value;
+    const user: Usuario = this.formUser.value;
     if (this.formUser.valid) {
       user.activeTkn = "";
-      console.log("este es el usuario final ", user);
+
+      user.alias = this.groupOne.get('alias')?.value;
+      user.teamId = this.groupOne.get('teamId')?.value;
+      user.password = this.groupOne.get('password')?.value;
+
+      user.study = this.groupTwo.get('study')?.value;
+
+      console.log("este es el usuario a guardar ", user);
+      /*
       this._userService.updateUser(user, user.userId).subscribe((resp: ApiResponse) => {
         if (resp.isSuccess) {
           this._util.viewAlert("Usuario se ha actulizado correctamente", "success");
@@ -227,7 +258,7 @@ export class InitComponent {
         } else {
           this._util.viewAlert(resp.message, "warn");
         }
-      })
+      })*/
     }
   }
 }

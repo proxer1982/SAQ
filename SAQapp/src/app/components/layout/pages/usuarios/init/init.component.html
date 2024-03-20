@@ -42,118 +42,158 @@
                         <div class="col-9">
                             <h1>¡Bienvenido!</h1>
 
+                            <mat-vertical-stepper [linear]="true" #stepper>
+                                <mat-step>
+                                    <ng-template matStepLabel>Datos personales</ng-template>
+
+                                    <mat-form-field appearance="outline" [className]="clase_password">
+                                        <mat-label>Contraseña:</mat-label>
+                                        <input matInput type="text" formControlName="password">
+                                        <button (click)="changePassword()" matSuffix mat-icon-button
+                                            matTooltip="Generar contraseña aleatoria" aria-label="Ver contraseña"
+                                            type="button">
+                                            <mat-icon>autorenew</mat-icon>
+                                        </button>
+
+                                        @if(formUser.hasError('requiredUpperCase', 'password')){
+                                        <mat-error>
+                                            la contraseña debe tener mínimo 1 mayúscula
+                                        </mat-error>
+                                        } @else if(formUser.hasError('requiredLowerCase', 'password')){
+                                        <mat-error>
+                                            la contraseña debe tener mínimo 1 minúscula
+                                        </mat-error>
+                                        } @else if(formUser.hasError('requiredNumber', 'password')){
+                                        <mat-error>
+                                            la contraseña debe tener mínimo un número
+                                        </mat-error>
+                                        } @else if(formUser.hasError('requiredSpecialCaracter', 'password')){
+                                        <mat-error>
+                                            la contraseña debe tener mínimo un cáracter especial
+                                        </mat-error>
+                                        } @else if(formUser.hasError('requiredLengthMin', 'password')){
+                                        <mat-error>
+                                            la contraseña debe ser de al menos 8 caracteres
+                                        </mat-error>
+                                        }
+                                    </mat-form-field>
+
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>¿Comó te gusta que te llamen?:</mat-label>
+                                        <input matInput type="text" formControlName="alias">
+
+                                        @if(formUser.hasError('required', 'alias')){
+                                        <mat-error>
+                                            este campo es requerido
+                                        </mat-error>
+                                        }
+                                    </mat-form-field>
+
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Equipo:</mat-label>
+                                        <mat-select formControlName="teamId">
+
+                                            @for(item of listEquipos; track item.teamId){
+                                            <mat-option [value]="item.teamId">{{ item.title }}</mat-option>
+                                            }
+
+                                        </mat-select>
+                                        @if (formUser.hasError('min', 'teamId')) {
+                                        <mat-error>
+                                            Es necesario que selecciones una opción
+                                        </mat-error>
+                                        }
+                                    </mat-form-field>
+
+                                    <div>
+                                        <button mat-button matStepperNext>Siguiente</button>
+                                    </div>
+                                </mat-step>
+
+                                <mat-step>
+                                    <ng-template matStepLabel>Estudios</ng-template>
+
+                                    <div class="titulo-seccion">
+                                        <h3>
+                                            Estudios <!-- Botón para agregar un nuevo estudio -->
+                                        </h3>
+                                        <button class="button-mas" mat-raised-button color="accent" type="button"
+                                            (click)="addStudy()">
+                                            Agregar Estudio
+                                        </button>
+                                    </div>
+
+                                    <div formArrayName="study" class="cont-fields-inline">
+                                        <!-- Bucle *ngFor para mostrar cada estudio en el FormArray -->
+                                        @for( stud of studyArray.controls; track stud; let i = $index){
+                                        <div>
+                                            <div class="row-fields-inline">
+                                                <div [formGroupName]="i" class="fields-inline">
+                                                    <mat-form-field appearance="outline" class="col-carr">
+                                                        <mat-label>Carrera:</mat-label>
+                                                        <input matInput formControlName="studyName">
+                                                    </mat-form-field>
+
+                                                    <mat-form-field appearance="outline" class="col-inst">
+                                                        <mat-label>Institución:</mat-label>
+                                                        <input matInput formControlName="studyLocation">
+                                                    </mat-form-field>
+
+                                                    <mat-form-field appearance="outline" class="col-status">
+                                                        <mat-label>Estado:{{stud.status.valueOf}}</mat-label>
+                                                        <mat-select formControlName="status">
+                                                            @for(estado of estadosStudy; track estado; let i =
+                                                            $index){
+                                                            <mat-option
+                                                                [value]="estado.id">{{estado.estado}}</mat-option>
+                                                            }
+                                                        </mat-select>
+                                                        @if (formUser.hasError('min', 'teamId')) {
+                                                        <mat-error>
+                                                            Es necesario que selecciones una opción
+                                                        </mat-error>
+                                                        }
+                                                    </mat-form-field>
+
+                                                    <!-- Botón para eliminar el estudio -->
+                                                    <button mat-icon-button color="warn" (click)="removeStudy(i)">
+                                                        <mat-icon>close</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        }
+
+                                    </div>
+
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext>Next</button>
+                                    </div>
+
+                                </mat-step>
+
+                                <mat-step>
+                                    <ng-template matStepLabel>Habilidades</ng-template>
+                                    You are now done.
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button (click)="stepper.reset()">Reset</button>
+                                    </div>
+                                </mat-step>
+                            </mat-vertical-stepper>
 
 
 
-                            <mat-form-field appearance="outline" [className]="clase_password">
-                                <mat-label>Contraseña:</mat-label>
-                                <input matInput type="text" formControlName="password">
-                                <button (click)="changePassword()" matSuffix mat-icon-button
-                                    matTooltip="Generar contraseña aleatoria" aria-label="Ver contraseña" type="button">
-                                    <mat-icon>autorenew</mat-icon>
-                                </button>
 
-                                @if(formUser.hasError('requiredUpperCase', 'password')){
-                                <mat-error>
-                                    la contraseña debe tener mínimo 1 mayúscula
-                                </mat-error>
-                                } @else if(formUser.hasError('requiredLowerCase', 'password')){
-                                <mat-error>
-                                    la contraseña debe tener mínimo 1 minúscula
-                                </mat-error>
-                                } @else if(formUser.hasError('requiredNumber', 'password')){
-                                <mat-error>
-                                    la contraseña debe tener mínimo un número
-                                </mat-error>
-                                } @else if(formUser.hasError('requiredSpecialCaracter', 'password')){
-                                <mat-error>
-                                    la contraseña debe tener mínimo un cáracter especial
-                                </mat-error>
-                                } @else if(formUser.hasError('requiredLengthMin', 'password')){
-                                <mat-error>
-                                    la contraseña debe ser de al menos 8 caracteres
-                                </mat-error>
-                                }
-                            </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                                <mat-label>¿Comó te gusta que te llamen?:</mat-label>
-                                <input matInput type="text" formControlName="alias">
 
-                                @if(formUser.hasError('required', 'alias')){
-                                <mat-error>
-                                    este campo es requerido
-                                </mat-error>
-                                }
-                            </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                                <mat-label>Equipo:</mat-label>
-                                <mat-select formControlName="teamId">
 
-                                    @for(item of listEquipos; track item.teamId){
-                                    <mat-option [value]="item.teamId">{{ item.title }}</mat-option>
-                                    }
 
-                                </mat-select>
-                                @if (formUser.hasError('min', 'teamId')) {
-                                <mat-error>
-                                    Es necesario que selecciones una opción
-                                </mat-error>
-                                }
-                            </mat-form-field>
-
-                            <div class="titulo-seccion">
-                                <h3>
-                                    Estudios <!-- Botón para agregar un nuevo estudio -->
-                                </h3>
-                                <button class="button-mas" mat-raised-button color="accent" type="button"
-                                    (click)="addStudy()">
-                                    Agregar Estudio
-                                </button>
-                            </div>
 
                             <!-- Contenedor de los estudios -->
-                            <div formArrayName="study" class="cont-fields-inline">
-                                <!-- Bucle *ngFor para mostrar cada estudio en el FormArray -->
-                                @for( stud of studyArray.controls; track stud; let i = $index){
-                                <div>
-                                    <div class="row-fields-inline">
-                                        <div [formGroupName]="i" class="fields-inline">
-                                            <mat-form-field appearance="outline" class="col-carr">
-                                                <mat-label>Carrera:</mat-label>
-                                                <input matInput formControlName="studyName">
-                                            </mat-form-field>
 
-                                            <mat-form-field appearance="outline" class="col-inst">
-                                                <mat-label>Institución:</mat-label>
-                                                <input matInput formControlName="studyLocation">
-                                            </mat-form-field>
-
-                                            <mat-form-field appearance="outline" class="col-status">
-                                                <mat-label>Estado:{{stud.status.valueOf}}</mat-label>
-                                                <mat-select formControlName="status">
-                                                    @for(estado of estadosStudy; track estado; let i = $index){
-                                                    <mat-option [value]="estado.id">{{estado.estado}}</mat-option>
-                                                    }
-                                                </mat-select>
-                                                @if (formUser.hasError('min', 'teamId')) {
-                                                <mat-error>
-                                                    Es necesario que selecciones una opción
-                                                </mat-error>
-                                                }
-                                            </mat-form-field>
-
-                                            <!-- Botón para eliminar el estudio -->
-                                            <button mat-icon-button color="warn" (click)="removeStudy(i)">
-                                                <mat-icon>close</mat-icon>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                }
-
-                            </div>
 
 
                             <button mat-raised-button color="primary" type="submit" [disabled]="loader">
