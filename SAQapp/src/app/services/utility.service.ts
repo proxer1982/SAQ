@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarCustomComponent } from '../shared/components/snack-bar-custom/snack-bar-custom.component';
+import { symbols } from '../shared/assets/symbols';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,11 @@ export class UtilityService {
     });
   }
 
-  generateSecurePassword(length: number): string {
+  generateSecurePassword(length: number, especial: string = symbols.str.complet): string {
     const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
     const numericChars = '0123456789';
-    const specialChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+    const specialChars = especial;
 
     const allChars = uppercaseChars + lowercaseChars + numericChars + specialChars;
 

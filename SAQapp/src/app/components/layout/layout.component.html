@@ -2,12 +2,14 @@
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <div class="toolbar-inicio">
+                @if(userlog.init != 1){
                 <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+                }
                 <h1>Sistema de calificación</h1>
             </div>
 
             <div class="actions">
-                <span>{{ user.firstName }} {{ user.lastName }}</span>
+                <span>{{ userlog.firstName }} {{ userlog.lastName }}</span>
                 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                     <mat-icon>more_vert</mat-icon>
                 </button>
@@ -29,7 +31,9 @@
         </mat-toolbar-row>
     </mat-toolbar>
     <div class="caja-pri">
+        @if(userlog.init != 1){
         <app-menu></app-menu>
+        }
         <div class="contenido">
             <router-outlet></router-outlet>
         </div>

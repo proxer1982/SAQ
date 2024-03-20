@@ -29,6 +29,7 @@ namespace SAQ.Application.Extensions
             services.AddScoped<IUserApplication, UserApplication>();
             services.AddScoped<IMenuApplication, MenuApplication>();
             services.AddScoped<IPositionApplication, PositionApplication>();
+            services.AddScoped<ITeamApplication, TeamApplication>();
 
             return services;
         }

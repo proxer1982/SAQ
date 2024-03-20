@@ -7,6 +7,7 @@ export interface Usuario {
     firstName?: string | null,
     lastName?: string | null,
     alias?: string | null,
+    study?: any[] | null,
     softSkills?: boolean | null,
     urlImage: string | null,
     status: number,
@@ -14,8 +15,10 @@ export interface Usuario {
     permisson?: number[] | null
     dateCreated?: string | null,
     rol?: any[] | null,
+    position?: object | null,
     careerId: number | null,
     stateCareer?: number | null,
     teamId: number | null,
-    team?: any | null;
+    team?: any | null,
+    activeTkn?: string | null
 }

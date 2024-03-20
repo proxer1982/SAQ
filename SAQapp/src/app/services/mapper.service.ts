@@ -23,6 +23,8 @@ export class MapperService {
       status: usuario.status,// Convertir de booleano a número según la lógica de tu aplicación
       careerId: usuario.careerId,
       teamId: usuario.teamId,
+      position: usuario.position,
+      study: usuario.study
     };
   }
 
@@ -47,7 +49,10 @@ export class MapperService {
       careerId: userDTO.careerId || null,
       stateCareer: null,
       teamId: userDTO.teamId || null,
-      team: null
+      team: null,
+      position: userDTO.position || null,
+      study: userDTO.study,
+      activeTkn: userDTO.activeTkn || null
     };
   }
 }

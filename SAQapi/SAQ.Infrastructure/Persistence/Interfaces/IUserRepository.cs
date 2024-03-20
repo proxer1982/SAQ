@@ -14,6 +14,7 @@ namespace SAQ.Infrastructure.Persistence.Interfaces
 
         Task<IEnumerable<User>> GetAllAsync(ICollection<StatusType> status);
         Task<User> GetByIdAsync(Guid id);
+        public Task<User> GetByTokenAsync(string userName, string token);
         Task<ICollection<int>> GetPermissonsByUser(Guid id);
 
         Task<User> AccountByUserName(string userName);

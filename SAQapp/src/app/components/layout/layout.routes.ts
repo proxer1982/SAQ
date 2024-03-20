@@ -5,6 +5,7 @@ import { DashBoardComponent } from './pages/dash-board/dash-board.component';
 import { ListUsuariosComponent } from './pages/usuarios/list-usuarios/list-usuarios.component';
 import { ListUsuariosInactivosComponent } from './pages/usuarios/list-usuarios-inactivos/list-usuarios-inactivos.component';
 import { EditUserComponent } from './pages/usuarios/edit-user/edit-user.component';
+import { InitComponent } from './pages/usuarios/init/init.component';
 
 export const routes: Routes = [
     {
@@ -20,6 +21,11 @@ export const routes: Routes = [
                 path: 'dashboard',
                 component: DashBoardComponent,
                 data: { title: 'DashBoard' }
+            },
+            {
+                path: 'init',
+                component: InitComponent,
+                data: { title: 'Inicio' }
             },
             {
                 path: 'usuarios',

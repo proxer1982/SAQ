@@ -11,8 +11,9 @@ namespace SAQ.Infrastructure.Persistence.Repositories
         public IUserRepository User { get; private set; }
         public IPermissonRepository Permisson { get; private set; }
         public IMenuRepository Menu { get; private set; }
-
         public IPositionRepository Position { get; private set; }
+        public ITeamRepository Team { get; private set; }
+        public IStudyRepository Study { get; private set; }
 
         public UnitOfWork(SAQContext contexto)
         {
@@ -22,6 +23,8 @@ namespace SAQ.Infrastructure.Persistence.Repositories
             Permisson = new PermissonRepository(_context);
             Menu = new MenuRepository(_context);
             Position = new PositionRepository(_context);
+            Team = new TeamRepository(_context);
+            Study = new StudyRepository(_context);
         }
 
         public void Dispose()

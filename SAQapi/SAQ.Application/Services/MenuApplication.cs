@@ -26,12 +26,6 @@ namespace SAQ.Application.Services
             var response = new BaseResponse<IEnumerable<Menu>>();
 
             List<int> permisos = (List<int>)await _unitOfWork.User.GetPermissonsByUser(userId);
-            Console.WriteLine("estos son los permisos para " + userId);
-            foreach (var permiso in permisos)
-            {
-                Console.WriteLine(permiso);
-            }
-
 
             var menus = await _unitOfWork.Menu.GetMenuByPermissons(permisos);
 
@@ -47,23 +41,6 @@ namespace SAQ.Application.Services
                 response.Message = ReplyMessage.MESSAGE_FAILED;
             }
 
-            /*var roleId = await _unitOfWork.User.GetRoleIdAsync(userId);
-
-            var permissons = _unitOfWork.Permisson.GetPermissonsUser(userId, roleId);
-
-            if (permissons is not null)
-            {
-                response.IsSuccess = true;
-                response.Data = (IEnumerable<Permisson>?)permissons;
-            }
-            else
-            {
-                response.IsSuccess = false;
-            }
-
-
-            //var account = await _unitOfWork.Perm.GetPermissonsUser(userId, roleId);
-            */
             return response;
         }
     }

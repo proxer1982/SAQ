@@ -46,7 +46,7 @@ namespace SAQ.Application.Services
             account.ActiveTkn = this.generateTknActive(account.UserName);
             account.Status = 2;
 
-            bool resp = await _unitOfWork.User?.RegisterAsync(account);
+            bool resp = await _unitOfWork.User.RegisterAsync(account);
 
             if (resp)
             {
@@ -64,7 +64,7 @@ namespace SAQ.Application.Services
             return response;
         }
 
-        private string GenerateToken(User user)
+        private string GenerateToken(User user, double tiempo = 0)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("Jwt:SecretKey").Get<string>() ?? string.Empty));
 
@@ -75,8 +75,11 @@ namespace SAQ.Application.Services
                 new Claim("userMail", user.UserName),
                 new Claim("firstName", user.FirstName!),
                 new Claim("lastName", user.LastName!),
-                new Claim("userId", user.UserId.ToString())
+                new Claim("init", (user.Alias == "" || user.TeamId == null || user.Status == 2) ? "1" : "0"),
+                new Claim("userId", user.UserId.ToString()!)
             };
+
+            var expires = (tiempo != 0) ? DateTime.Now.AddMinutes(tiempo) : DateTime.Now.AddDays(int.Parse(_config["Jwt:Expires"]!));
 
             var token = new JwtSecurityToken(
                 issuer: _config["Jwt:Issuer"],
@@ -90,6 +93,35 @@ namespace SAQ.Application.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        public async Task<BaseResponse<string>> InitUser(InitRequestDto requestDto)
+        {
+            var response = new BaseResponse<string>();
+            var account = await _unitOfWork.User.GetByTokenAsync(requestDto.UserName!, requestDto.ActiveTkn!);
+
+            if (account is not null && account.ActiveTkn != "" && requestDto.ActiveTkn is not null)
+            {
+                if (BC.Verify(requestDto.Password, account.Password))
+                {
+                    response.IsSuccess = true;
+                    response.Data = GenerateToken(account);
+                    response.Message = ReplyMessage.MESSAGE_TOKEN;
+                }
+                else
+                {
+                    response.IsSuccess = false;
+                    response.Message = ReplyMessage.MESSAGE_TOKEN_ERROR;
+                }
+
+            }
+            else
+            {
+                response.IsSuccess = false;
+                response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
+            }
+
+            return response;
+        }
+
         public async Task<BaseResponse<string>> GenerateToken(TokenRequestDto requestDto)
         {
             var response = new BaseResponse<string>();
@@ -100,7 +132,7 @@ namespace SAQ.Application.Services
                 if (BC.Verify(requestDto.Password, account.Password))
                 {
                     response.IsSuccess = true;
-                    response.Data = GenerateToken(account);
+                    response.Data = GenerateToken(account, 30);
                     response.Message = ReplyMessage.MESSAGE_TOKEN;
                 }
                 else
@@ -139,12 +171,44 @@ namespace SAQ.Application.Services
             var usernew = _mapper.Map<User>(requestUser);
             usernew.UserId = userId;
 
+            if (userEdit.Password != usernew.Password)
+            {
+                usernew.Password = BC.HashPassword(usernew.Password);
+            }
+
+            if (userEdit.Status == 2 && usernew.Status == 1)
+            {
+                usernew.ActiveTkn = null;
+            }
+
+            var studies = usernew.Study;
+            usernew.Study = null;
+
             response.Data = await _unitOfWork.User.EditAsync(usernew);
 
             if (response.Data)
             {
-                response.IsSuccess = true;
-                response.Message = ReplyMessage.MESSAGE_UPDATE;
+                foreach (var stud in studies)
+                {
+                    var resp = await _unitOfWork.Study.RegisterAsync(stud);
+                    if (!resp)
+                    {
+                        response.Data = resp;
+                    }
+                }
+
+                if (response.Data)
+                {
+                    response.IsSuccess = true;
+                    response.Message = ReplyMessage.MESSAGE_UPDATE;
+                }
+                else
+                {
+                    response.IsSuccess = false;
+                    response.Message = ReplyMessage.MESSAGE_FAILED;
+                }
+
+
             }
             else
             {

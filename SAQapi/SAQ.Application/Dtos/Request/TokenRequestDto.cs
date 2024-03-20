@@ -1,4 +1,4 @@
-﻿namespace SAQ.Application.Dtos.Response
+﻿namespace SAQ.Application.Dtos.Request
 {
     public class TokenRequestDto
     {

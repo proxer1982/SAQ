@@ -3,6 +3,7 @@ import { AsyncValidatorFn, FormControl } from '@angular/forms';
 import { Observable, catchError, map, of } from 'rxjs';
 import { UsuarioService } from './usuario.service';
 import { MicrosoftService } from './microsoft.service';
+import { symbols } from '../shared/assets/symbols';
 
 @Injectable({
   providedIn: 'root'
@@ -87,8 +88,7 @@ export class ValidateService {
       return { requiredNumber: true };
     }
 
-
-    const hasSpecialCharacters = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasSpecialCharacters = symbols.complet.test(password);
     if (!hasSpecialCharacters) {
       return { requiredSpecialCaracter: true };
     }
@@ -99,4 +99,15 @@ export class ValidateService {
 
     return null;
   }
+
+  /*private escapeRegExpTemp(stro: string): string {
+    console.log(stro);
+    const resp = stro.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    console.log('esta es la respuesta: ', resp);
+    if (resp === stro) {
+      return resp;
+    } else {
+      return "";
+    }
+  }*/
 }

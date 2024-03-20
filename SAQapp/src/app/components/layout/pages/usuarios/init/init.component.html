@@ -1,0 +1,171 @@
+<div class="cont-init">
+    <div class="init">
+        <div class="cont_form_user">
+            <form [formGroup]="formUser" (ngSubmit)="activeUser()" class="user-form">
+
+                <div class="container-fluid p-4">
+
+                    <div class="row">
+                        <div class="col-3" style="border-right: 1px solid #e2e2e2;">
+                            <div class="avatar-edit">
+                                @if(user?.urlImage != "" && user?.urlImage != null && user?.urlImage != undefined){
+                                @if(loader){<div class="loader">loader</div>} @else {<img [src]="user?.urlImage"
+                                    alt="avatar" class="avatar">}
+                                } @else {
+                                @if(loader){<div class="loader">loader</div>} @else {<img alt="avatar"
+                                    src="{{img_user}}">}
+                                }
+                            </div>
+
+                            <div class="datos_user">
+
+                                <p class="text-left">Usuario:<br>
+                                    <strong>{{user?.userName}}</strong>
+                                </p>
+
+                                <p class="text-left">Nombre:<br>
+                                    <strong>{{user?.firstName}} {{user?.lastName}}</strong>
+                                </p>
+
+                                <p class="text-left">Cargo:<br>
+                                    <strong>{{user.position?.title}}</strong>
+                                </p>
+                                <p class="text-left"><mat-slide-toggle class="example-margin" color="primary"
+                                        formControlName="softSkills">
+                                        Habilidades blandas
+                                    </mat-slide-toggle></p>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-9">
+                            <h1>¡Bienvenido!</h1>
+
+
+
+
+                            <mat-form-field appearance="outline" [className]="clase_password">
+                                <mat-label>Contraseña:</mat-label>
+                                <input matInput type="text" formControlName="password">
+                                <button (click)="changePassword()" matSuffix mat-icon-button
+                                    matTooltip="Generar contraseña aleatoria" aria-label="Ver contraseña" type="button">
+                                    <mat-icon>autorenew</mat-icon>
+                                </button>
+
+                                @if(formUser.hasError('requiredUpperCase', 'password')){
+                                <mat-error>
+                                    la contraseña debe tener mínimo 1 mayúscula
+                                </mat-error>
+                                } @else if(formUser.hasError('requiredLowerCase', 'password')){
+                                <mat-error>
+                                    la contraseña debe tener mínimo 1 minúscula
+                                </mat-error>
+                                } @else if(formUser.hasError('requiredNumber', 'password')){
+                                <mat-error>
+                                    la contraseña debe tener mínimo un número
+                                </mat-error>
+                                } @else if(formUser.hasError('requiredSpecialCaracter', 'password')){
+                                <mat-error>
+                                    la contraseña debe tener mínimo un cáracter especial
+                                </mat-error>
+                                } @else if(formUser.hasError('requiredLengthMin', 'password')){
+                                <mat-error>
+                                    la contraseña debe ser de al menos 8 caracteres
+                                </mat-error>
+                                }
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>¿Comó te gusta que te llamen?:</mat-label>
+                                <input matInput type="text" formControlName="alias">
+
+                                @if(formUser.hasError('required', 'alias')){
+                                <mat-error>
+                                    este campo es requerido
+                                </mat-error>
+                                }
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Equipo:</mat-label>
+                                <mat-select formControlName="teamId">
+
+                                    @for(item of listEquipos; track item.teamId){
+                                    <mat-option [value]="item.teamId">{{ item.title }}</mat-option>
+                                    }
+
+                                </mat-select>
+                                @if (formUser.hasError('min', 'teamId')) {
+                                <mat-error>
+                                    Es necesario que selecciones una opción
+                                </mat-error>
+                                }
+                            </mat-form-field>
+
+                            <div class="titulo-seccion">
+                                <h3>
+                                    Estudios <!-- Botón para agregar un nuevo estudio -->
+                                </h3>
+                                <button class="button-mas" mat-raised-button color="accent" type="button"
+                                    (click)="addStudy()">
+                                    Agregar Estudio
+                                </button>
+                            </div>
+
+                            <!-- Contenedor de los estudios -->
+                            <div formArrayName="study" class="cont-fields-inline">
+                                <!-- Bucle *ngFor para mostrar cada estudio en el FormArray -->
+                                @for( stud of studyArray.controls; track stud; let i = $index){
+                                <div>
+                                    <div class="row-fields-inline">
+                                        <div [formGroupName]="i" class="fields-inline">
+                                            <mat-form-field appearance="outline" class="col-carr">
+                                                <mat-label>Carrera:</mat-label>
+                                                <input matInput formControlName="studyName">
+                                            </mat-form-field>
+
+                                            <mat-form-field appearance="outline" class="col-inst">
+                                                <mat-label>Institución:</mat-label>
+                                                <input matInput formControlName="studyLocation">
+                                            </mat-form-field>
+
+                                            <mat-form-field appearance="outline" class="col-status">
+                                                <mat-label>Estado:{{stud.status.valueOf}}</mat-label>
+                                                <mat-select formControlName="status">
+                                                    @for(estado of estadosStudy; track estado; let i = $index){
+                                                    <mat-option [value]="estado.id">{{estado.estado}}</mat-option>
+                                                    }
+                                                </mat-select>
+                                                @if (formUser.hasError('min', 'teamId')) {
+                                                <mat-error>
+                                                    Es necesario que selecciones una opción
+                                                </mat-error>
+                                                }
+                                            </mat-form-field>
+
+                                            <!-- Botón para eliminar el estudio -->
+                                            <button mat-icon-button color="warn" (click)="removeStudy(i)">
+                                                <mat-icon>close</mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+
+                            </div>
+
+
+                            <button mat-raised-button color="primary" type="submit" [disabled]="loader">
+                                Guardar
+                            </button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

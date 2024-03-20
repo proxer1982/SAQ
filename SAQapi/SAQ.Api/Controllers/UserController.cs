@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 
 using SAQ.Application.Dtos.Request;
-using SAQ.Application.Dtos.Response;
 using SAQ.Application.Interfaces;
 using SAQ.Utilities.Statics;
 
@@ -24,6 +23,15 @@ namespace SAQ.Api.Controllers
         public async Task<IActionResult> GenerateToken([FromBody] TokenRequestDto request)
         {
             var response = await _userApplication.GenerateToken(request);
+
+            return Ok(response);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("init")]
+        public async Task<IActionResult> InitUser([FromBody] InitRequestDto request)
+        {
+            var response = await _userApplication.InitUser(request);
 
             return Ok(response);
         }
@@ -50,8 +58,16 @@ namespace SAQ.Api.Controllers
         [HttpGet("{idUser:Guid}")]
         public async Task<IActionResult> UserById(Guid idUser)
         {
-            var response = await _userApplication.GetUserById(idUser);
-            return Ok(response);
+            try
+            {
+                var response = await _userApplication.GetUserById(idUser);
+                return Ok(response);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+
         }
 
         [Authorize]

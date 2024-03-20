@@ -9,6 +9,7 @@
         public string? LastName { get; set; }
         public string? Alias { get; set; }
         public bool? SoftSkills { get; set; }
+        public ICollection<StudyRequestDto>? Study { get; set; } = new List<StudyRequestDto>();
         public int PositionId { get; set; }
         public int? CareerId { get; set; }
         public int? TeamId { get; set; }

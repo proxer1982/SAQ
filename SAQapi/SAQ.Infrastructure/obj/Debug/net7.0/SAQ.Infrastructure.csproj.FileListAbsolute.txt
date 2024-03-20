@@ -72,6 +72,12 @@ C:\Proyecto satrack\REPO\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastr
 C:\Proyecto satrack\REPO\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\refint\SAQ.Infrastructure.dll
 C:\Proyecto satrack\REPO\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.pdb
 C:\Proyecto satrack\REPO\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\ref\SAQ.Infrastructure.dll
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.csproj.AssemblyReference.cache
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.AssemblyInfoInputs.cache
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.AssemblyInfo.cs
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.sourcelink.json
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\bin\Debug\net7.0\SAQ.Infrastructure.deps.json
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\bin\Debug\net7.0\SAQ.Infrastructure.dll
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\bin\Debug\net7.0\SAQ.Infrastructure.pdb
@@ -79,12 +85,6 @@ C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\bin\Debug\net7.0\SAQ.Domain.dl
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\bin\Debug\net7.0\SAQ.Utilities.dll
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\bin\Debug\net7.0\SAQ.Domain.pdb
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\bin\Debug\net7.0\SAQ.Utilities.pdb
-C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.csproj.AssemblyReference.cache
-C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.AssemblyInfoInputs.cache
-C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.AssemblyInfo.cs
-C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.sourcelink.json
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.csproj.CopyComplete
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\SAQ.Infrastructure.dll
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Infrastructure\obj\Debug\net7.0\refint\SAQ.Infrastructure.dll

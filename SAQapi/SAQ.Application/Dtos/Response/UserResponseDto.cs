@@ -17,6 +17,8 @@ namespace SAQ.Application.Dtos.Response
         public int Status { get; set; }
         public string? StatusUser { get; set; }
 
+        public virtual PositionResponseDto? Position { get; set; } = null;
+
         //public virtual Career? Career { get; set; }
         public virtual RoleResponseDto? Rol { get; set; } = new RoleResponseDto();
         //public virtual Position? Position { get; set; }

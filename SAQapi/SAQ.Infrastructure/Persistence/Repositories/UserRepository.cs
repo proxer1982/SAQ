@@ -117,7 +117,26 @@ namespace SAQ.Infrastructure.Persistence.Repositories
         {
             try
             {
-                var getById = await _context.Users.Where(x => x.UserId.Equals(id)).AsNoTracking().FirstOrDefaultAsync();
+                var getById = await _context.Users
+                    .AsNoTracking()
+                    .Where(x => x.UserId.Equals(id))
+                    .Include(e => e.Position)
+                    .Include(e => e.Study)
+                    .FirstOrDefaultAsync();
+
+                return getById!;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public async Task<User> GetByTokenAsync(string userName, string token)
+        {
+            try
+            {
+                var getById = await _context.Users.Where(x => x.UserName.Equals(userName) && x.ActiveTkn.Equals(token)).AsNoTracking().FirstOrDefaultAsync();
 
                 return getById!;
             }

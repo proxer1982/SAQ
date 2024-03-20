@@ -11,16 +11,12 @@ namespace SAQ.Application.Interfaces
         Task<BaseResponse<IEnumerable<User>>> GetAllUsers(ICollection<StatusType> status);
         Task<BaseResponse<UserResponseDto>> GetUserById(Guid userId);
 
-        Task<BaseResponse<RegisterResponseDto>> RegisterUser(UserRequestDto requestDto);
+        Task<BaseResponse<RegisterResponseDto>> RegisterUser(UserRequestDto requestDto); // esta funbcion retorna si el registro fue exitoso y el tkn para poder inicializar el usuario desde el correo
         public Task<BaseResponse<bool>> EditUser(Guid userId, UserRequestDto requestUser);
         public Task<BaseResponse<bool>> RemoveUser(Guid userId);
-        Task<BaseResponse<string>> GenerateToken(TokenRequestDto requestDto);
+        public Task<BaseResponse<string>> GenerateToken(TokenRequestDto requestDto);
+        public Task<BaseResponse<string>> InitUser(InitRequestDto requestDto);
 
         Task<BaseResponse<bool>> GetUserByMail(string email);
-        /*
-        Task<BaseResponse<BaseEntityResponse<UserResponseDto>>> GetListUsers(BaseFiltersRequest filters);
-        Task<BaseResponse<bool>> RegisterUser(UserRequestDto requestUser);
-        Task<BaseResponse<bool>> EditUser(int userId, UserRequestDto requestUser);
-        Task<BaseResponse<bool>> RemoveUser(int userId);*/
     }
 }

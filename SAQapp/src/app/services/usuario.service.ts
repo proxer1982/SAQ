@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment as env } from '../../environments/environment';
 import { endpoint, httpOptions } from '../shared/apis/endpoints';
 import { ApiResponse } from '../interfaces/response.interface';
-import { Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Usuario } from '../interfaces/usuario.interface';
 import { UsuarioDTO } from '../interfaces/userDTOInterface';
 import { MapperService } from './mapper.service';
@@ -12,19 +12,25 @@ import { MapperService } from './mapper.service';
   providedIn: 'root'
 })
 export class UsuarioService {
-
   private map = inject(MapperService);
+
+  constructor(private _http: HttpClient) {
+
+  }
+
+
+
   getAllUsersInactive() {
     var urlApi: string = env.api + endpoint.USER_ALL_INACTIVE;
     return this._http.get<ApiResponse>(urlApi);
   }
 
-  constructor(private _http: HttpClient) { }
 
   getAllUsersActive(): Observable<ApiResponse> {
     var urlApi: string = env.api + endpoint.USER_ALL_ACTIVE;
     return this._http.get<ApiResponse>(urlApi);
   }
+
 
   getUserByMail(mail: string): Observable<ApiResponse> {
     var urlApi: string = env.api + endpoint.USER_BY_MAIL + mail;

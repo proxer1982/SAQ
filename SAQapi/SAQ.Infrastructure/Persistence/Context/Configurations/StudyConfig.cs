@@ -12,7 +12,7 @@ namespace SAQ.Infrastructure.Persistence.Context.Configurations
             entity.ToTable(nameof(Study));
 
             entity.HasKey(e => e.StudyId);
-            entity.Property(x => x.StudyId).ValueGeneratedNever();
+            entity.Property(x => x.StudyId).ValueGeneratedOnAdd();
 
             entity.Property(e => e.StudyName).IsRequired().HasMaxLength(150);
             entity.Property(e => e.Status).HasDefaultValueSql("(1)"); // 1 terminado, 2 en progreso, 3  sin terminar y 0 elimiando

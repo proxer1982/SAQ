@@ -5,7 +5,6 @@ import { BehaviorSubject, Observable, map } from 'rxjs';
 import { ApiResponse } from '../../interfaces/response.interface';
 import { environment as env } from '../../../environments/environment';
 import { endpoint, httpOptions } from '../../shared/apis/endpoints';
-import { Sesion } from '../../interfaces/sesion.interface';
 
 
 @Injectable({
@@ -56,5 +55,25 @@ export class AuthService {
   deleteSessionUser() {
     this.user.next(null);
     localStorage.removeItem('SAQtoken');
+  }
+
+  initUser(user: string, token: string, pass: string): Observable<ApiResponse> {
+    var urlApi: string = env.api + endpoint.USER_INIT;
+    var data = {
+      userName: user,
+      activeTkn: token,
+      password: pass
+    }
+
+    return this._http.post<ApiResponse>(urlApi, data, httpOptions).pipe(
+      map((res: ApiResponse) => {
+        if (res.isSuccess) {
+          localStorage.setItem('SAQtoken', JSON.stringify(res));
+          this.user.next(res);
+        }
+
+        return res;
+      })
+    );
   }
 }

@@ -30,7 +30,7 @@
         public virtual Role? Rol { get; set; }
         public virtual Position? Position { get; set; }
         public virtual Team? Team { get; set; }
-        public virtual ICollection<Study> Study { get; set; } = new List<Study>();
+        public virtual ICollection<Study>? Study { get; set; } = new List<Study>();
         public virtual ICollection<UserTopic>? UserTopics { get; set; } = new List<UserTopic>();
         public virtual ICollection<PermissonUser> PermissonUsers { get; set; } = new List<PermissonUser>();
 

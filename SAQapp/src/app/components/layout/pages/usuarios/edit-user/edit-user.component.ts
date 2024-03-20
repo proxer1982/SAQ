@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { HeaderComponent } from '../../../../../shared/components/header/header.component';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -18,6 +18,7 @@ import { MapperService } from '../../../../../services/mapper.service';
 import { MicrosoftService } from '../../../../../services/microsoft.service';
 import { imagesSAQ } from '../../../../../shared/assets/images';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { symbols } from '../../../../../shared/assets/symbols';
 
 @Component({
   selector: 'app-new-user',
@@ -106,7 +107,6 @@ export class EditUserComponent implements OnDestroy {
       this._userService.getUserById(this.usuarioId).subscribe((resp: ApiResponse) => {
         if (resp.isSuccess) {
           this.user = this._mapper.mapUsuarioToUserDTO(resp.data);
-          console.log(this.user)
 
           this.clase_password = 'password_hide';
 
@@ -154,7 +154,7 @@ export class EditUserComponent implements OnDestroy {
   }
 
   changePassword() {
-    this.formUser.get('password')?.setValue(this._util.generateSecurePassword(12));
+    this.formUser.get('password')?.setValue(this._util.generateSecurePassword(12, symbols.str.init));
   }
 
   guardarUsuario() {
@@ -180,11 +180,14 @@ export class EditUserComponent implements OnDestroy {
 
         this._userService.createUser(user).subscribe((resp: ApiResponse) => {
           if (resp.isSuccess) {
-            console.log("esta es la data de respeusta:", resp.data)
+            const pass = encodeURIComponent(user.password);
+            const name = encodeURIComponent(user.userName);
+            const tkn = encodeURIComponent(resp.data.activeTkn);
+
             var message = `<table style="width: 600px; margin-bottom: 80px"><tr><td style="text-align: center; padding: 20px"><img src="http://localhost:4200/assets/img/logo_app.svg" width="200" ></td></tr><tr><td style="text-align: justify; padding: 20px"><h3>Hola ${user.firstName} ${user.lastName}</h3>
             <p>Se te ha otorgado acceso a la plataforma de calificación de aprendizaje técnico.
             <br>A continuación encontrarás un enlace para tu primer ingreso. Recuerda que debes cambiar tu contraseña y anexar algunos datos adicionales para poder empezar tu proceso de aprendizaje.</p><br>
-            <a style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 25px;" href="http://localhost:4200/app/activar/${user.userName}/${resp.data.activeTkn}">Activar cuenta</a><br><br><br><br><br><br><br>
+            <a style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 25px;" href="http://localhost:4200/activar/${pass}/${name}/${tkn}">Activar cuenta</a><br><br><br><br><br><br><br>
             </td></tr></table>`;
 
             var resp_mail = this._mss.sendMail(message, "juan.zorro@satrack.com", "juan.zorro@satrack.com", "Activar cuenta SAQ").subscribe((resp: any) => {
@@ -210,7 +213,7 @@ export class EditUserComponent implements OnDestroy {
 
   newPassword() {
     if (!this.state_btn_pss) {
-      this.formUser.get('password')?.setValue(this._util.generateSecurePassword(12));
+      this.formUser.get('password')?.setValue(this._util.generateSecurePassword(12, symbols.str.init));
       this.clase_password = 'password_show';
       this.txt_btn_pss = 'No cambiar contraseña';
       this.color_btn_pss = 'success';

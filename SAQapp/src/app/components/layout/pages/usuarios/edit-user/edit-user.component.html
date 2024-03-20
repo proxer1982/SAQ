@@ -61,7 +61,7 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label>Apellido:</mat-label>
-                    <input matInput type="text" formControlName="lastName" [disabled]="loader">
+                    <input matInput type="text" formControlName="lastName">
                     @if(formUser.hasError('invalidText', 'lastName')){
                     <mat-error>
                         El nombre no puede contener números ni caracteres especiales
@@ -71,7 +71,7 @@
 
                 <mat-form-field appearance="outline" [className]="clase_password">
                     <mat-label>Contraseña:</mat-label>
-                    <input matInput type="text" formControlName="password" [disabled]="loader">
+                    <input matInput type="text" formControlName="password">
                     <button (click)="changePassword()" matSuffix mat-icon-button
                         matTooltip="Generar contraseña aleatoria" aria-label="Ver contraseña" type="button">
                         <mat-icon>autorenew</mat-icon>
@@ -102,7 +102,7 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label>Rol:</mat-label>
-                    <mat-select formControlName="roleId" [disabled]="loader">
+                    <mat-select formControlName="roleId">
                         @for(item of listRoles; track item.roleId){
                         <mat-option [value]="item.roleId">{{ item.title }}</mat-option>
                         }
@@ -116,7 +116,7 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label>Cargo:</mat-label>
-                    <mat-select formControlName="positionId" [disabled]="loader">
+                    <mat-select formControlName="positionId">
 
                         @for(item of listcargos; track item.positionId){
                         <mat-option [value]="item.positionId">{{ item.title }}</mat-option>

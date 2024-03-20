@@ -7,9 +7,11 @@ export const endpoint = {
     USER_BY_MAIL: "User/mail/",
     USER_BY_ID: "User/",
     POSITIONS: "Position",
+    TEAMS: "Team",
     USER_UPDATE: "User/update/",
     USER_DELETE: "User/delete/",
     USER_NEW: "User/register",
+    USER_INIT: "User/init/",
 
     //AUTH MODULE
     GENERATE_TOKEN: 'User/generate/token'

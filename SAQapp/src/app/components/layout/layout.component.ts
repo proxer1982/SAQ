@@ -28,10 +28,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
+import { Router, RouterOutlet, RouterLink, RouterLinkActive, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { MenuComponent } from '../../shared/components/menu/menu.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AuthService } from '../../services/auth/auth.service';
+import { Usuario } from '../../interfaces/usuario.interface';
+import { UsuarioService } from '../../services/usuario.service';
 
 
 @Component({
@@ -77,10 +79,15 @@ import { AuthService } from '../../services/auth/auth.service';
 
 export class LayoutComponent implements AfterViewInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
-  user: any;
+  userlog: any;
 
-  constructor(private _router: Router, private _auth: AuthService) {
-    this.user = this._auth.getUserLogged();
+  constructor(private _router: Router, private _route: ActivatedRoute, private _auth: AuthService, private _userSevice: UsuarioService) {
+    this.userlog = this._auth.getUserLogged();
+    console.log('este es el usuario logueado ', this.userlog);
+
+    if (this.userlog.init == 1) {
+      _router.navigate(['/app/init']);
+    }
   }
 
   ngAfterViewInit() {
@@ -88,7 +95,6 @@ export class LayoutComponent implements AfterViewInit {
       // El componente se ha inicializado completamente, ahora puedes acceder a this.sidenav
       // Llama al método toggle() aquí o realiza otras operaciones necesarias
       this.sidenav.toggle();
-      this.user = this._auth.getUserLogged();
     }
   }
 
