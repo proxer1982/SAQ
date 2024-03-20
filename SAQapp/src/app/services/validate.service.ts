@@ -3,7 +3,7 @@ import { AsyncValidatorFn, FormControl } from '@angular/forms';
 import { Observable, catchError, map, of } from 'rxjs';
 import { UsuarioService } from './usuario.service';
 import { MicrosoftService } from './microsoft.service';
-import { symbols } from '../shared/assets/symbols';
+import { symbols } from '../shared/util/symbols';
 
 @Injectable({
   providedIn: 'root'

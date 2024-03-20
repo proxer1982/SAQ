@@ -16,9 +16,9 @@ import { Subscription } from 'rxjs';
 import { UsuarioDTO } from '../../../../../interfaces/userDTOInterface';
 import { MapperService } from '../../../../../services/mapper.service';
 import { MicrosoftService } from '../../../../../services/microsoft.service';
-import { imagesSAQ } from '../../../../../shared/assets/images';
+import { imagesSAQ } from '../../../../../shared/util/images';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { symbols } from '../../../../../shared/assets/symbols';
+import { symbols } from '../../../../../shared/util/symbols';
 
 @Component({
   selector: 'app-new-user',

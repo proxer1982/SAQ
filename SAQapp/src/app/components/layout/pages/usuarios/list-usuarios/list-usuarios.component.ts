@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } 
 import { MatDialog } from '@angular/material/dialog';
 import { AlertDeleteUserComponent } from '../../../../../shared/components/alert-delete-user/alert-delete-user.component';
 import { UtilityService } from '../../../../../services/utility.service';
-import { imagesSAQ } from '../../../../../shared/assets/images';
+import { imagesSAQ } from '../../../../../shared/util/images';
 
 @Component({
   selector: 'app-list-usuarios',

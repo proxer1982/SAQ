@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarCustomComponent } from '../shared/components/snack-bar-custom/snack-bar-custom.component';
-import { symbols } from '../shared/assets/symbols';
+import { symbols } from '../shared/util/symbols';
 
 @Injectable({
   providedIn: 'root'

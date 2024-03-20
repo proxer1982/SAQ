@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { imagesSAQ } from '../../../../../shared/assets/images';
+import { imagesSAQ } from '../../../../../shared/util/images';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../../../services/auth/auth.service';
 import { ApiResponse } from '../../../../../interfaces/response.interface';
