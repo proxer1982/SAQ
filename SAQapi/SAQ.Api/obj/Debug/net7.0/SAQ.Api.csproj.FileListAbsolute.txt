@@ -346,3 +346,4 @@ C:\Proyecto satrack\SAQ\SAQapi\SAQ.Api\obj\Debug\net7.0\refint\SAQ.Api.dll
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Api\obj\Debug\net7.0\SAQ.Api.pdb
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Api\obj\Debug\net7.0\SAQ.Api.genruntimeconfig.cache
 C:\Proyecto satrack\SAQ\SAQapi\SAQ.Api\obj\Debug\net7.0\ref\SAQ.Api.dll
+C:\Proyecto satrack\SAQ\SAQapi\SAQ.Api\obj\Debug\net7.0\SAQ.Api.MvcApplicationPartsAssemblyInfo.cs

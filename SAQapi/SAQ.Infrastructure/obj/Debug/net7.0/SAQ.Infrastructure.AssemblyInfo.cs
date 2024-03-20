@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SAQ.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2c8bf9f5c2efdd185b79032351c70c6fdc7c172")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+969505f07aad2e7295d4d2b02a9a6bc888b4066c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SAQ.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SAQ.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
