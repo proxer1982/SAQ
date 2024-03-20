@@ -16,6 +16,7 @@
         public int PositionId { get; set; }
         public string? UrlImage { get; set; }
         public int? Status { get; set; } = 1;
+        public string? ActiveTkn { get; set; }
 
         public DateTime DateCreated { get; set; }
         public Guid? UserCreated { get; set; }

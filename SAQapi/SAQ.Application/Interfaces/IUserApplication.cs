@@ -8,10 +8,10 @@ namespace SAQ.Application.Interfaces
 {
     public interface IUserApplication
     {
-        Task<BaseResponse<IEnumerable<User>>> GetAllUsers(StatusType status);
+        Task<BaseResponse<IEnumerable<User>>> GetAllUsers(ICollection<StatusType> status);
         Task<BaseResponse<UserResponseDto>> GetUserById(Guid userId);
 
-        Task<BaseResponse<bool>> RegisterUser(UserRequestDto requestDto);
+        Task<BaseResponse<RegisterResponseDto>> RegisterUser(UserRequestDto requestDto);
         public Task<BaseResponse<bool>> EditUser(Guid userId, UserRequestDto requestUser);
         public Task<BaseResponse<bool>> RemoveUser(Guid userId);
         Task<BaseResponse<string>> GenerateToken(TokenRequestDto requestDto);

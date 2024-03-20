@@ -14,6 +14,8 @@ import { requestMS } from '../interfaces/requestMS.interface';
 })
 export class MicrosoftService {
 
+  constructor(private _http: HttpClient) { }
+
   getDataUser(email: string): Observable<ApiResponse> {
     email = email.split('@')[0].replace('.', '_') + '@satrack.com';
 
@@ -25,5 +27,16 @@ export class MicrosoftService {
     return this._http.post<ApiResponse>(urlApi, data, httpOptionsExt);
   }
 
-  constructor(private _http: HttpClient) { }
+  sendMail(message: string, from: string, of: string, subject: string): Observable<ApiResponse> {
+    var data = {
+      message: message,
+      from: from,
+      of: of,
+      subject: subject
+    }
+
+    var urlApi: string = env.api_Mail;
+
+    return this._http.post<ApiResponse>(urlApi, data, httpOptionsExt);
+  }
 }

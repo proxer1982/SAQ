@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../../../../shared/components/header/header.component';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,6 +16,8 @@ import { Subscription } from 'rxjs';
 import { UsuarioDTO } from '../../../../../interfaces/userDTOInterface';
 import { MapperService } from '../../../../../services/mapper.service';
 import { MicrosoftService } from '../../../../../services/microsoft.service';
+import { imagesSAQ } from '../../../../../shared/assets/images';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-new-user',
@@ -23,6 +25,7 @@ import { MicrosoftService } from '../../../../../services/microsoft.service';
   imports: [
     HeaderComponent,
     ReactiveFormsModule,
+    FormsModule, MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
@@ -37,6 +40,7 @@ export class EditUserComponent implements OnDestroy {
   txt_btn_pss = 'Cambiar contraseña';
   color_btn_pss = 'primary';
   state_btn_pss = false;
+  img_user: string = imagesSAQ.USER
 
   loader = false;
 
@@ -53,7 +57,7 @@ export class EditUserComponent implements OnDestroy {
     careerId: null,
     urlImage: "",
     teamId: null,
-    status: 1,
+    status: 2,
   };
 
   listcargos: any[] = []; // Inicializar como un array
@@ -89,7 +93,7 @@ export class EditUserComponent implements OnDestroy {
       firstName: [this.user.firstName, [Validators.required, _validateService.validateName]],
       lastName: [this.user.lastName, [Validators.required, _validateService.validateName]],
       urlImage: [this.user.urlImage],
-      status: new FormControl(1, [Validators.required]),
+      status: new FormControl(this.user.status, [Validators.required]),
       alias: [''],
       softSkills: [false],
       careerId: [null],
@@ -176,6 +180,18 @@ export class EditUserComponent implements OnDestroy {
 
         this._userService.createUser(user).subscribe((resp: ApiResponse) => {
           if (resp.isSuccess) {
+            console.log("esta es la data de respeusta:", resp.data)
+            var message = `<table style="width: 600px; margin-bottom: 80px"><tr><td style="text-align: center; padding: 20px"><img src="http://localhost:4200/assets/img/logo_app.svg" width="200" ></td></tr><tr><td style="text-align: justify; padding: 20px"><h3>Hola ${user.firstName} ${user.lastName}</h3>
+            <p>Se te ha otorgado acceso a la plataforma de calificación de aprendizaje técnico.
+            <br>A continuación encontrarás un enlace para tu primer ingreso. Recuerda que debes cambiar tu contraseña y anexar algunos datos adicionales para poder empezar tu proceso de aprendizaje.</p><br>
+            <a style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 25px;" href="http://localhost:4200/app/activar/${user.userName}/${resp.data.activeTkn}">Activar cuenta</a><br><br><br><br><br><br><br>
+            </td></tr></table>`;
+
+            var resp_mail = this._mss.sendMail(message, "juan.zorro@satrack.com", "juan.zorro@satrack.com", "Activar cuenta SAQ").subscribe((resp: any) => {
+
+              console.log("esta es la respuesta del envio del mail: ", resp)
+            });
+
             this._util.viewAlert("Usuario creado correctamente", "success");
             this._router.navigate(['/app/usuarios']);
           }
@@ -210,6 +226,11 @@ export class EditUserComponent implements OnDestroy {
 
   incluirImagenAvatar(event: any) {
     const userNameControl = this.formUser.get('userName');
+    this.formUser.controls['firstName'].disable();
+    this.formUser.controls['lastName'].disable();
+    this.formUser.controls['password'].disable();
+    this.formUser.controls['roleId'].disable();
+    this.formUser.controls['positionId'].disable();
 
     var datos: any = {};
 
@@ -217,6 +238,13 @@ export class EditUserComponent implements OnDestroy {
       this.loader = true;
       this._mss.getDataUser(userNameControl.value).subscribe((resp: any) => {
         this.loader = false;
+
+        this.formUser.controls['firstName'].enable();
+        this.formUser.controls['lastName'].enable();
+        this.formUser.controls['password'].enable();
+        this.formUser.controls['roleId'].enable();
+        this.formUser.controls['positionId'].enable();
+
         if (resp?.body.isSuccess) {
           console.log(resp?.body.data);
           datos = resp?.body.data;

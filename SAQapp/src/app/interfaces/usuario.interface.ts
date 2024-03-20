@@ -9,7 +9,7 @@ export interface Usuario {
     alias?: string | null,
     softSkills?: boolean | null,
     urlImage: string | null,
-    status: number | boolean,
+    status: number,
     statusUser?: string | null,
     permisson?: number[] | null
     dateCreated?: string | null,

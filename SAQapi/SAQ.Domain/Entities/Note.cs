@@ -14,6 +14,6 @@
         public DateTime? DateDeleted { get; set; }
         public Guid? UserDeleted { get; set; }
 
-        public virtual User? user { get; set; }
+        //public virtual User? user { get; set; }
     }
 }

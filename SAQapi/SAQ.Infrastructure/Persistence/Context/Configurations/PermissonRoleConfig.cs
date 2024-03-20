@@ -13,6 +13,7 @@ namespace SAQ.Infrastructure.Persistence.Context.Configurations
             _initPermisson.Add(new PermissonRole() { PermissonRoleId = 1, PermissonId = 1, RoleId=1 });
             _initPermisson.Add(new PermissonRole() { PermissonRoleId = 2, PermissonId = 2, RoleId=1 });
             _initPermisson.Add(new PermissonRole() { PermissonRoleId = 3, PermissonId = 1, RoleId=2 });
+            _initPermisson.Add(new PermissonRole() { PermissonRoleId = 4, PermissonId = 1, RoleId=3 });
 
             entity.ToTable(nameof(PermissonRole));
             entity.HasKey(e => e.PermissonRoleId);

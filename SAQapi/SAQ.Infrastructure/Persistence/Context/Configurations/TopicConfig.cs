@@ -14,7 +14,6 @@ namespace SAQ.Infrastructure.Persistence.Context.Configurations
 
             entity.Property(e => e.Description).IsRequired().HasMaxLength(100);
             entity.Property(e => e.UrlLogo).HasMaxLength(250);
-            entity.Property(e => e.CatagoryTopicId).IsRequired();
             entity.Property(e => e.DateCreated).HasDefaultValueSql("CURRENT_TIMESTAMP");
             entity.Property(e => e.Status).HasDefaultValueSql("(1)");
         }

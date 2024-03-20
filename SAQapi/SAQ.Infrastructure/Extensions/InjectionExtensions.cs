@@ -14,12 +14,20 @@ namespace SAQ.Infrastructure.Extensions
         {
             var assembly = typeof(SAQContext).Assembly.FullName;
 
+            /* services.AddDbContext<SAQContext>(
+                  options => options.UseNpgsql(
+                       config.GetConnectionString("SAQConnectionPs"),
+                       b => b.MigrationsAssembly(assembly)
+                       ),
+                  ServiceLifetime.Transient);
+            */
+
             services.AddDbContext<SAQContext>(
-                 options => options.UseNpgsql(
-                      config.GetConnectionString("SAQConnectionPs"),
-                      b => b.MigrationsAssembly(assembly)
-                      ),
-                 ServiceLifetime.Transient);
+                options => options.UseSqlServer(
+                    config.GetConnectionString("SAQConnectionSqlServer"),
+                    b => b.MigrationsAssembly(assembly)),
+                ServiceLifetime.Transient);
+
 
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();

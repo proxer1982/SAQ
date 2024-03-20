@@ -10,11 +10,11 @@ namespace SAQ.Infrastructure.Persistence.Context.Configurations
         public void Configure(EntityTypeBuilder<Menu> entity)
         {
             List<Menu> menuInit = new List<Menu>();
-            menuInit.Add(new Menu() { MenuId = 1, Title = "DashBoard", Icon = "dashboard", Parent = 0, Url = "dashboard", order = 0 });
-            menuInit.Add(new Menu() { MenuId = 2, Title = "Usuarios", Icon = "group", Parent = 0, Url = "", order = 2 });
-            menuInit.Add(new Menu() { MenuId = 3, Title = "Nuevo usuario", Icon = "", Parent = 2, Url = "usuarios/nuevo_usuario", order = 3 });
-            menuInit.Add(new Menu() { MenuId = 4, Title = "Usuarios activos", Icon = "", Parent = 2, Url = "/usuarios", order = 1 });
-            menuInit.Add(new Menu() { MenuId = 5, Title = "Usuarios inactivos", Icon = "", Parent = 2, Url = "/usuarios/inactivos", order = 2 });
+            menuInit.Add(new Menu() { MenuId = 1, Title = "DashBoard", Icon = "dashboard", Parent = 0, Url = "dashboard", Order = 0 });
+            menuInit.Add(new Menu() { MenuId = 2, Title = "Usuarios", Icon = "group", Parent = 0, Url = "", Order = 2 });
+            menuInit.Add(new Menu() { MenuId = 3, Title = "Nuevo usuario", Icon = "", Parent = 2, Url = "usuarios/nuevo_usuario", Order = 3 });
+            menuInit.Add(new Menu() { MenuId = 4, Title = "Usuarios activos", Icon = "", Parent = 2, Url = "/usuarios", Order = 1 });
+            menuInit.Add(new Menu() { MenuId = 5, Title = "Usuarios inactivos", Icon = "", Parent = 2, Url = "/usuarios/inactivos", Order = 2 });
 
             entity.ToTable(nameof(Menu));
             entity.HasKey(e => e.MenuId);

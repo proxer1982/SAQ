@@ -12,7 +12,7 @@ namespace SAQ.Infrastructure.Persistence.Interfaces
         Task<bool> RemoveAsync(Guid id);
         Task<BaseEntityResponse<User>> GetListUsers(BaseFiltersRequest filters);
 
-        Task<IEnumerable<User>> GetAllAsync(StatusType status);
+        Task<IEnumerable<User>> GetAllAsync(ICollection<StatusType> status);
         Task<User> GetByIdAsync(Guid id);
         Task<ICollection<int>> GetPermissonsByUser(Guid id);
 

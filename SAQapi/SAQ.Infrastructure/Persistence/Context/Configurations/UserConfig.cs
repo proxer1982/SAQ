@@ -26,7 +26,7 @@ namespace SAQ.Infrastructure.Persistence.Context.Configurations
             entity.Property(e => e.UrlImage).HasColumnType("text").IsUnicode();
             entity.Property(e => e.DateCreated).HasDefaultValueSql("CURRENT_TIMESTAMP");
             entity.Property(e => e.Status).HasDefaultValueSql("(1)");
-            entity.Property(e => e.SoftSkills).HasDefaultValueSql("(false)");
+            entity.Property(e => e.SoftSkills).HasDefaultValueSql("('false')");
 
             entity.HasOne(e => e.Rol).WithMany().HasForeignKey(e => e.RoleId).IsRequired();
             entity.HasOne(e => e.Career).WithMany().HasForeignKey(e => e.CareerId);

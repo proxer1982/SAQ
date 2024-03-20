@@ -26,8 +26,12 @@ namespace SAQ.Application.Services
             var response = new BaseResponse<IEnumerable<Menu>>();
 
             List<int> permisos = (List<int>)await _unitOfWork.User.GetPermissonsByUser(userId);
-            Console.WriteLine("estos son los permisos");
-            Console.WriteLine(permisos);
+            Console.WriteLine("estos son los permisos para " + userId);
+            foreach (var permiso in permisos)
+            {
+                Console.WriteLine(permiso);
+            }
+
 
             var menus = await _unitOfWork.Menu.GetMenuByPermissons(permisos);
 
@@ -35,7 +39,7 @@ namespace SAQ.Application.Services
             {
                 response.Data = menus;
                 response.IsSuccess = true;
-                response.Message = ReplyMessage.MESSAGE_UPDATE;
+                response.Message = ReplyMessage.MESSAGE_QUERY;
             }
             else
             {
